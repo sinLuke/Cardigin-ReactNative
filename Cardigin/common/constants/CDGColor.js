@@ -1,4 +1,3 @@
-export const StyleConst = {};
 export const CDGColor = {
   Black: '#000000',
   Red: '#ff7276',
