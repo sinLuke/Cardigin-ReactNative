@@ -6,25 +6,48 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { CDGColor } from './common/constants/CDGColor';
-import LoginView from './view/LoginView';
+import React, { Component } from "react";
+import { StyleProvider } from "native-base";
+import { Platform, StyleSheet, Text, View } from "react-native";
+import { CDGColor } from "./common/constants/CDGColor";
+import RootView_ios from "./view/RootView_ios";
+import RootView_android from "./view/RootView_android";
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu'
+import getTheme from "./native-base-theme/components";
+import platform from "./native-base-theme/variables/platform";
+
+const RootView = Platform.select({
+  ios: RootView_ios,
+  android: RootView_android
 });
 
 type Props = {};
 export default class App extends Component<Props> {
+  constructor(props) {
+    super(props);
+    this.state = {
+      currentPage: "Exibition"
+    };
+
+    this.changePage = function(name) {
+      this.setState({
+        currentPage: name
+      });
+    };
+
+    this.changePage.bind(this);
+  }
+
   render() {
     return (
-      <View>
-        <LoginView />
-      </View>
+      <StyleProvider style={getTheme(platform)}>
+        <RootView
+          screenProps={{
+            currentPage: this.state.currentPage,
+            changePage: name => this.changePage(name)
+          }}
+        />
+      </StyleProvider>
     );
   }
 }

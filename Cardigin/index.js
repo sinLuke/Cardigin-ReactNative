@@ -1,10 +1,10 @@
 /** @format */
 
-import { AppRegistry } from 'react-native';
-import RootView_ios from './view/RootView_ios';
-import { name as appName } from './app.json';
+import { AppRegistry } from "react-native";
+import App from "./App";
+import { name as appName } from "./app.json";
 
-AppRegistry.registerComponent(appName, () => RootView_ios);
+AppRegistry.registerComponent(appName, () => App);
 
 //https://github.com/Maxeh/react-native-tabbar-bottom
 //https://github.com/GeekyAnts/NativeBase#6-compatibility-versions
