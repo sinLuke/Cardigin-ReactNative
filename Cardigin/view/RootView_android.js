@@ -9,10 +9,7 @@ import SideBar_android from "./SideBar_android";
 import { DrawerNavigator } from "react-navigation";
 import { Alert } from "react-native";
 
-createDrawerNavigator = require("react-navigation-drawer")
-  .createDrawerNavigator;
-
-const RootView_android = createDrawerNavigator(
+const RootView_android = DrawerNavigator(
   {
     ExibitionView: { screen: ExibitionViewBar },
     CommunityView: { screen: CommunityViewBar },

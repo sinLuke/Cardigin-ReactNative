@@ -10,6 +10,7 @@ import {
   Icon,
   Footer
 } from "native-base";
+import { CDGColor } from "../common/constants/CDGColor";
 
 import cardiginText from "../assets/images/cardiginText.png";
 import cargigin_bk from "../assets/images/cargigin_bk.png";

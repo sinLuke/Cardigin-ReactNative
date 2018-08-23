@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 import { Text, View, Platform } from "react-native";
-import { Container } from "native-base";
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Title,
+  Icon,
+  Button,
+  Right
+} from "native-base";
 
 export default class CameraViewBar extends React.Component {
   constructor(props) {
