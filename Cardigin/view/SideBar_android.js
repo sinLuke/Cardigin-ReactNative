@@ -1,15 +1,8 @@
 import React from "react";
-import { AppRegistry, Image, StatusBar } from "react-native";
-import {
-  Button,
-  Text,
-  Container,
-  List,
-  ListItem,
-  Content,
-  Icon,
-  Footer
-} from "native-base";
+import { Image } from "react-native";
+import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import MIcon from "react-native-vector-icons/MaterialIcons";
+import { Text, Container, List, ListItem, Content } from "native-base";
 import { CDGColor } from "../common/constants/CDGColor";
 
 import cardiginText from "../assets/images/cardiginText.png";
@@ -24,35 +17,43 @@ export default class SideBar_android extends React.Component {
     var dataOfList = [
       {
         name: "Exibition",
-        icon: "ios-aperture",
+        iconClass: Icon,
+        icon: "blur",
         routes: "ExibitionView",
         color:
           this.props.screenProps.currentPage === "Exibition"
-            ? "black"
-            : "#A1A1A1"
+            ? CDGColor.Prime
+            : CDGColor.LightGray
       },
       {
         name: "Community",
-        icon: "ios-albums",
+        iconClass: Icon,
+        icon: "view-carousel",
         routes: "CommunityView",
         color:
           this.props.screenProps.currentPage === "Community"
-            ? "black"
-            : "#A1A1A1"
+            ? CDGColor.Prime
+            : CDGColor.LightGray
       },
       {
         name: "Journal",
-        icon: "ios-contact",
+        iconClass: MIcon,
+        icon: "person-pin",
         routes: "JournalView",
         color:
-          this.props.screenProps.currentPage === "Journal" ? "black" : "#A1A1A1"
+          this.props.screenProps.currentPage === "Journal"
+            ? CDGColor.Prime
+            : CDGColor.LightGray
       },
       {
         name: "Setting",
-        icon: "ios-settings",
+        iconClass: Icon,
+        icon: "settings",
         routes: "SettingView",
         color:
-          this.props.screenProps.currentPage === "Setting" ? "black" : "#A1A1A1"
+          this.props.screenProps.currentPage === "Setting"
+            ? CDGColor.Prime
+            : CDGColor.LightGray
       }
     ];
 
@@ -90,11 +91,11 @@ export default class SideBar_android extends React.Component {
                   button
                   onPress={() => {
                     this.props.navigation.navigate(data.routes);
-                    console.log(this.props.screenProps);
                     this.props.screenProps.changePage(data.name);
                   }}
                 >
-                  <Icon
+                  <data.iconClass
+                    size={30}
                     name={data.icon}
                     style={{
                       paddingRight: 16,

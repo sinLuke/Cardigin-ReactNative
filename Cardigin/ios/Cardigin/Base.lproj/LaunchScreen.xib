@@ -24,11 +24,11 @@
                         <constraint firstAttribute="height" constant="16" id="1v9-cW-MuN"/>
                     </constraints>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiginTextWithLogo" translatesAutoresizingMaskIntoConstraints="NO" id="BGk-sL-cqa">
-                    <rect key="frame" x="140" y="140" width="200" height="200"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cardiginTextWithLogo" translatesAutoresizingMaskIntoConstraints="NO" id="BGk-sL-cqa">
+                    <rect key="frame" x="160" y="160" width="160" height="160"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="200" id="UcV-O6-ANB"/>
-                        <constraint firstAttribute="width" constant="200" id="eFe-c7-Hmb"/>
+                        <constraint firstAttribute="height" constant="160" id="UcV-O6-ANB"/>
+                        <constraint firstAttribute="width" constant="160" id="eFe-c7-Hmb"/>
                     </constraints>
                 </imageView>
             </subviews>

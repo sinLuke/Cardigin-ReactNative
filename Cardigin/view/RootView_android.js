@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import CommunityViewBar from "./CommunityView/NavigatorBar";
 import JournalViewBar from "./JournalView/NavigatorBar";
 import SettingViewBar from "./SettingView/NavigatorBar";
-import ExibitionViewBar from "./ExibitionView/NavigatorBar";
+import ExibitionView from "./ExibitionView/ExibitionView";
+
+import CameraView from "./CameraView/NavigatorBar";
 
 import SideBar_android from "./SideBar_android";
 
@@ -11,10 +13,11 @@ import { Alert } from "react-native";
 
 const RootView_android = DrawerNavigator(
   {
-    ExibitionView: { screen: ExibitionViewBar },
+    ExibitionView: { screen: ExibitionView },
     CommunityView: { screen: CommunityViewBar },
     JournalView: { screen: JournalViewBar },
-    SettingView: { screen: SettingViewBar }
+    SettingView: { screen: SettingViewBar },
+    CameraView: { screen: CameraView }
   },
   {
     contentComponent: props => <SideBar_android {...props} />
