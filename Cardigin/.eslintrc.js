@@ -1,5 +1,5 @@
 module.exports = {
-    "extends": "google"
+    "extends": "google",
     "plugins": [
         "react",
         "react-native"

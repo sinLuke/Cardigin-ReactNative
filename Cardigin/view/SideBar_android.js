@@ -1,12 +1,12 @@
-import React from "react";
-import { Image } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import MIcon from "react-native-vector-icons/MaterialIcons";
-import { Text, Container, List, ListItem, Content } from "native-base";
-import { CDGColor } from "../common/constants/CDGColor";
+import React from 'react';
+import { Image } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import MIcon from 'react-native-vector-icons/MaterialIcons';
+import { Text, Container, List, ListItem, Content } from 'native-base';
+import { CDGColor } from '../common/constants/CDGColor';
 
-import cardiginText from "../assets/images/cardiginText.png";
-import cargigin_bk from "../assets/images/cargigin_bk.png";
+import cardiginText from '../assets/images/cardiginText.png';
+import cargigin_bk from '../assets/images/cargigin_bk.png';
 
 export default class SideBar_android extends React.Component {
   constructor(props) {
@@ -16,42 +16,42 @@ export default class SideBar_android extends React.Component {
   render() {
     var dataOfList = [
       {
-        name: "Exibition",
+        name: 'Exibition',
         iconClass: Icon,
-        icon: "blur",
-        routes: "ExibitionView",
+        icon: 'blur',
+        routes: 'ExibitionView',
         color:
-          this.props.screenProps.currentPage === "Exibition"
+          this.props.screenProps.currentPage === 'Exibition'
             ? CDGColor.Prime
             : CDGColor.LightGray
       },
       {
-        name: "Community",
+        name: 'Community',
         iconClass: Icon,
-        icon: "view-carousel",
-        routes: "CommunityView",
+        icon: 'view-carousel',
+        routes: 'CommunityView',
         color:
-          this.props.screenProps.currentPage === "Community"
+          this.props.screenProps.currentPage === 'Community'
             ? CDGColor.Prime
             : CDGColor.LightGray
       },
       {
-        name: "Journal",
+        name: 'Journal',
         iconClass: MIcon,
-        icon: "person-pin",
-        routes: "JournalView",
+        icon: 'person-pin',
+        routes: 'JournalView',
         color:
-          this.props.screenProps.currentPage === "Journal"
+          this.props.screenProps.currentPage === 'Journal'
             ? CDGColor.Prime
             : CDGColor.LightGray
       },
       {
-        name: "Setting",
+        name: 'Setting',
         iconClass: Icon,
-        icon: "settings",
-        routes: "SettingView",
+        icon: 'settings',
+        routes: 'SettingView',
         color:
-          this.props.screenProps.currentPage === "Setting"
+          this.props.screenProps.currentPage === 'Setting'
             ? CDGColor.Prime
             : CDGColor.LightGray
       }
@@ -65,19 +65,19 @@ export default class SideBar_android extends React.Component {
             source={cargigin_bk}
             style={{
               height: 120,
-              width: "100%",
-              alignSelf: "stretch",
-              position: "absolute"
+              width: '100%',
+              alignSelf: 'stretch',
+              position: 'absolute'
             }}
           />
           <Image
             square
             style={{
-              resizeMode: "contain",
+              resizeMode: 'contain',
               height: 100,
               width: 180,
-              position: "absolute",
-              alignSelf: "center",
+              position: 'absolute',
+              alignSelf: 'center',
               top: 20
             }}
             source={cardiginText}
