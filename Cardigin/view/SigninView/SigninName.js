@@ -1,14 +1,15 @@
-import React, { Component } from 'react';
-import t from 'tcomb-form-native';
-import { View, Text } from 'react-native';
-import { Style } from './style';
-import Button from 'apsl-react-native-button';
+import React, { Component } from "react";
+import t from "tcomb-form-native";
+import { View, Text } from "react-native";
+import { Style } from "./style";
+import Button from "apsl-react-native-button";
 
 var Form = t.form.Form;
 export default class signinName extends React.Component {
   constructor(props) {
     super(props);
     this.nextStep = this.nextStep.bind(this);
+    this.onChange = this.onChange.bind(this);
     // optional rendering options (see documentation)
 
     this.state = {
@@ -18,23 +19,27 @@ export default class signinName extends React.Component {
         lastName: t.String // an optional string
       }),
       options: {
-        label: 'Creating User Profile \n',
+        label: "Creating User Profile \n",
         fields: {
           userName: {
-            label: 'User Name',
-            placeholder: '@yourUserName'
+            label: "User Name",
+            placeholder: "@yourUserName"
           },
           firstName: {
-            label: 'First Name',
-            placeholder: 'Your Given Name'
+            label: "First Name",
+            placeholder: "Your Given Name"
           },
           lastName: {
-            label: 'Last Name',
-            placeholder: 'Your Family Name'
+            label: "Last Name",
+            placeholder: "Your Family Name"
           }
         }
       }
     };
+  }
+
+  onChange(value) {
+    // recalculate the type only if strictly necessary
   }
 
   nextStep() {
@@ -46,6 +51,7 @@ export default class signinName extends React.Component {
     }
   }
   render() {
+    console.log(this.props);
     return (
       <View style={Style.container}>
         <View style={Style.topContainer}>
@@ -53,6 +59,7 @@ export default class signinName extends React.Component {
             ref="form"
             type={this.state.userDataName}
             options={this.state.options}
+            onChange={this.onChange}
           />
         </View>
         <View style={Style.bottomBox}>

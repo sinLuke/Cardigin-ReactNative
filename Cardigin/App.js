@@ -6,17 +6,17 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import { StyleProvider } from 'native-base';
-import { Platform, StyleSheet, Text, View } from 'react-native';
-import { CDGColor } from './common/constants/CDGColor';
-import RootView_ios from './view/RootView_ios';
-import RootView_android from './view/RootView_android';
-import LoginView from './view/LoginView/LoginView';
-import SigninView from './view/SigninView/SigninView';
+import React, { Component } from "react";
+import { StyleProvider } from "native-base";
+import { Platform, StyleSheet, Text, View } from "react-native";
+import { CDGColor } from "./common/constants/CDGColor";
+import RootView_ios from "./view/RootView_ios";
+import RootView_android from "./view/RootView_android";
+import LoginView from "./view/LoginView/LoginView";
+import SigninView from "./view/SigninView/SigninView";
 
-import getTheme from './native-base-theme/components';
-import platform from './native-base-theme/variables/platform';
+import getTheme from "./native-base-theme/components";
+import platform from "./native-base-theme/variables/platform";
 
 const RootView = Platform.select({
   ios: RootView_ios,
@@ -28,7 +28,7 @@ export default class App extends Component<Props> {
   constructor(props) {
     super(props);
     this.state = {
-      currentPage: 'Exibition',
+      currentPage: "Exibition",
       Login: false
     };
 
