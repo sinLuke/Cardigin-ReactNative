@@ -41,6 +41,7 @@ export default class App extends Component<Props> {
     this.changePage.bind(this);
   }
 
+  // change from this.state.Login to true to skip login
   render() {
     if (this.state.Login) {
       return (
