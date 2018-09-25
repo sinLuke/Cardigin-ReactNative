@@ -1,9 +1,11 @@
-import React, { Component } from 'react';
-import t from 'tcomb-form-native';
-import { View, Text, ScrollView } from 'react-native';
-import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
-import { Style } from './style';
-import Button from 'apsl-react-native-button';
+import React, { Component } from "react";
+import t from "tcomb-form-native";
+import { View, Text, ScrollView } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { Style } from "./style";
+import Button from "apsl-react-native-button";
+
+import { StackActions } from "react-navigation";
 
 var Form = t.form.Form;
 export default class signinEmail extends React.Component {
@@ -25,15 +27,15 @@ export default class signinEmail extends React.Component {
     if (this.UniversityEmail[value.university]) {
       if (value.email) {
         return {
-          label: 'Creating User Profile \n',
+          label: "Creating User Profile \n",
           fields: {
             university: {
-              label: '',
-              nullOption: { value: '', text: 'Choose your University' },
+              label: "",
+              nullOption: { value: "", text: "Choose your University" },
               isCollapsed: false
             },
             email: {
-              label: 'University Email',
+              label: "University Email",
               placeholder: `${this.UniversityEmail[value.university]}`,
               help: `${value.email}${this.UniversityEmail[value.university]}`
             }
@@ -41,15 +43,15 @@ export default class signinEmail extends React.Component {
         };
       } else {
         return {
-          label: 'Creating User Profile \n',
+          label: "Creating User Profile \n",
           fields: {
             university: {
-              label: '',
-              nullOption: { value: '', text: 'Choose your University' },
+              label: "",
+              nullOption: { value: "", text: "Choose your University" },
               isCollapsed: false
             },
             email: {
-              label: 'University Email',
+              label: "University Email",
               placeholder: `${this.UniversityEmail[value.university]}`
             }
           }
@@ -57,22 +59,22 @@ export default class signinEmail extends React.Component {
       }
     } else {
       return {
-        label: 'Creating User Profile \n',
+        label: "Creating User Profile \n",
         fields: {
           university: {
-            label: '',
-            nullOption: { value: '', text: 'Choose your University' },
+            label: "",
+            nullOption: { value: "", text: "Choose your University" },
             isCollapsed: false
           },
           email: {
-            label: 'University Email',
+            label: "University Email",
             placeholder: `Unknown Email Suffix`
           }
         }
       };
     }
   }
-  getInitialState() {
+  getInitialState(props) {
     const value = {};
     return {
       value,
@@ -82,22 +84,22 @@ export default class signinEmail extends React.Component {
   }
   constructor(props) {
     super(props);
+    console.log(props);
     this.nextStep = this.nextStep.bind(this);
     this.onChange = this.onChange.bind(this);
     // optional rendering options (see documentation)
 
     this.UniversityList = {
-      UofT: 'University of Toronto',
-      other: 'Some Other University'
+      UofT: "University of Toronto",
+      other: "Some Other University"
     };
 
     this.UniversityEmail = {
-      UofT: '@mail.utoronto.ca',
-      other: '@some.other.ca'
+      UofT: "@mail.utoronto.ca",
+      other: "@some.other.ca"
     };
 
-    this.state = this.getInitialState();
-    console.log(this.state);
+    this.state = this.getInitialState(props);
   }
 
   onChange(value) {
@@ -117,6 +119,19 @@ export default class signinEmail extends React.Component {
       // if validation fails, value will be null
       console.log(value); // value here is an instance of Person
     }
+
+    this.props.navigation.dispatch(
+      StackActions.push({
+        routeName: "Name",
+        params: {
+          email: this.props.navigation.state.params.email,
+          schoolEmail: `${this.state.value.email}${
+            this.UniversityEmail[value.university]
+          }`,
+          university: this.state.value.university
+        }
+      })
+    );
   }
   render() {
     return (
