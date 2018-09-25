@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Text, View, Platform } from "react-native";
+import { View, Platform } from "react-native";
+import {Text, Content} from "native-base";
 
 import {
   Container,
@@ -11,6 +12,7 @@ import {
   Icon,
   Right
 } from "native-base";
+import CommunityView from "./CommunityView";
 export default class CommunityViewBar extends React.Component {
   constructor(props) {
     super(props);
@@ -37,6 +39,11 @@ export default class CommunityViewBar extends React.Component {
           </Body>
           <Right />
         </Header>
+        <Content>
+          <CommunityView/>
+        </Content>
+        
+
       </Container>
     );
   }
